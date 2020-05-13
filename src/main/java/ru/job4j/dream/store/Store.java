@@ -1,10 +1,9 @@
-package ru.iob4j.dream.store;
+package ru.job4j.dream.store;
 
-import ru.iob4j.dream.model.Candidate;
-import ru.iob4j.dream.model.Post;
+import ru.job4j.dream.model.Candidate;
+import ru.job4j.dream.model.Post;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
