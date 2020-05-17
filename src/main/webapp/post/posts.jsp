@@ -6,9 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@page import="ru.job4j.dream.model.Post" %>
-<%@page import="ru.job4j.dream.store.Store" %>
-<%@ page import="java.util.Collection" %>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <html>
 <head>
     <!-- Required meta tags -->
@@ -44,16 +42,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                <% for (Post post : (Collection<Post>) request.getAttribute("posts")) { %>
-                <tr>
-                    <td>
-                        <a href="<%=request.getContextPath()%>/post/edit.jsp?id=<%=post.getId()%>">
+                <c:forEach var="post" items="${posts}" >
+                    <tr>
+                        <td>
+                            <a href='<c:url value="/post/edit.jsp?id=${post.id}"/>'>
                             <i class="fa fa-edit mr-3"></i>
-                        </a>
-                        <%=post.getName()%>
-                    </td>
-                </tr>
-                <% } %>
+                            </a>
+                            <c:out value="${post.name}"/>
+                        </td>
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </div>
