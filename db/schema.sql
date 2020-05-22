@@ -6,5 +6,6 @@ date text
 );
 CREATE table if not exists candidate (
 id serial primary key,
-name text
+name text,
+photoId text
 );

@@ -21,4 +21,6 @@ public interface Store {
     void update(Post post);
 
     void update(Candidate candidate);
+
+    void deleteCandidate(int id);
 }

@@ -95,7 +95,8 @@ public class PsqlStore implements Store {
                 while (rs.next()) {
                     candidates.add(new Candidate(
                             rs.getInt("id"),
-                            rs.getString("name")));
+                            rs.getString("name"),
+                            rs.getString("photoId")));
                 }
             }
         } catch (Exception e) {
@@ -145,9 +146,10 @@ public class PsqlStore implements Store {
     private Candidate create(Candidate candidate) {
         try (Connection con = pool.getConnection();
              PreparedStatement ps = con.prepareStatement(
-                     "Insert into candidate (name) values (?)",
+                     "Insert into candidate (name, photoId) values (?, ?)",
                      PreparedStatement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, candidate.getName());
+            ps.setString(2, candidate.getPhotoId());
             ps.execute();
             try (ResultSet id = ps.getGeneratedKeys()) {
                 if (id.next()) {
@@ -184,8 +186,10 @@ public class PsqlStore implements Store {
              PreparedStatement ps = con.prepareStatement(
                      "UPDATE candidate " +
                              "set name = ?" +
+                             "photoId = ?" +
                              "where id =" + candidate.getId())) {
             ps.setString(1, candidate.getName());
+            ps.setString(2, candidate.getPhotoId());
             ps.execute();
         } catch (Exception e) {
             e.printStackTrace();
@@ -225,5 +229,16 @@ public class PsqlStore implements Store {
             e.printStackTrace();
         }
         return result;
+    }
+
+    @Override
+    public void deleteCandidate(int id) {
+        try (Connection con = pool.getConnection();
+             PreparedStatement ps = con.prepareStatement(
+                     "DELETE from candidate where id=" + id)) {
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

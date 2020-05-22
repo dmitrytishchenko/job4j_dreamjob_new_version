@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -42,6 +42,7 @@
                     <thead>
                     <tr>
                         <th scope="col">Названия</th>
+                        <th scope="col">Фото</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -53,9 +54,18 @@
                                 </a>
                                 <c:out value="${can.name}"/>
                             </td>
+                            <td>
+                                <img src="${pageContext.servletContext.contextPath}/download?name=${can.photoId}"
+                                     width="30px"
+                                     height="30px"/>
+                                <br>
+                                <c:out value="${can.photoId}"></c:out>
+                                <br>
+                                <a href="${pageContext.servletContext.contextPath}/download?name=${can.photoId}">Download</a>
+                                <a href="${pageContext.servletContext.contextPath}/delete?name=${can.id}">Delete</a>
+                            </td>
                         </tr>
                     </c:forEach>
-
                     </tbody>
                 </table>
             </div>

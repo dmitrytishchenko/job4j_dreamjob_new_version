@@ -1,12 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
   User: Дмитрий
-  Date: 13.05.2020
-  Time: 21:06
+  Date: 20.05.2020
+  Time: 21:30
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <!-- Required meta tags -->
@@ -26,36 +26,34 @@
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Работа мечты</title>
+    <title>Delete candidate</title>
 </head>
 <body>
-<div class="row">
-    <div class="card" style="width: 100%">
-        <div class="card-header">
-            Вакансии
-        </div>
-        <div class="card-body">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Названия</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach var="post" items="${posts}">
-                    <tr>
-                        <td>
-                            <a href='<c:url value="/post/edit.jsp?id=${post.id}"/>'>
-                            <i class="fa fa-edit mr-3"></i>
-                            </a>
-                            <c:out value="${post.name}"/>
-                        </td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-        </div>
+<h3>Delete this User</h3>
+<c:forEach var="can" items="${candidates}">
+<form action="${pageContext.servletContext.contextPath}/delete?name=${can.id}" method="post">
+    <div class="card-body">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Имя</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <c:out value="${can.id}"></c:out>
+                </td>
+                <td>
+                    <c:out value="${can.name}"></c:out>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-</div>
+    <button type="submit" class="btn btn-default">Delete</button>
+    </c:forEach>
+</form>
 </body>
 </html>
