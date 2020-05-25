@@ -30,7 +30,7 @@ public interface Store {
 
     List<User> findAllUsers();
 
-    User findUserById(int id);
+    User findUserByEmail(String email);
 
 
 }

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Дмитрий
-  Date: 22.05.2020
-  Time: 20:51
+  Date: 25.05.2020
+  Time: 17:09
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html; charset=UTF-8" %>
@@ -34,17 +34,20 @@
                 Авторизация
             </div>
             <div class="card-body">
-                <form action="<%=request.getContextPath()%>/auth.do" method="post">
+                <form action="<%=request.getContextPath()%>/reg.do" method="post">
                     <div class="form-group">
-                        <label>Почта</label>
+                        <label>Введите имя нового пользователя</label>
+                        <input type="text" class="form-control" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label>Введите электронную почту нового пользователя</label>
                         <input type="text" class="form-control" name="email">
                     </div>
                     <div class="form-group">
-                        <label>Пароль</label>
+                        <label>Введите пароль нового пользователя</label>
                         <input type="text" class="form-control" name="password">
                     </div>
-                    <button type="submit" class="btn btn-primary">Войти</button>
-                    <a class="nav-link" href="<%=request.getContextPath()%>/reg.jsp">Регистрация</a>
+                    <button type="submit" class="btn btn-primary">Создать</button>
                 </form>
             </div>
         </div>

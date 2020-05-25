@@ -11,7 +11,7 @@ photoId text
 );
 create table if not exists users (
 id serial primary key,
-name text,
+name text unique,
 email text,
 password text
 );

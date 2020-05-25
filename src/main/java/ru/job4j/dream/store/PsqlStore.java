@@ -38,6 +38,7 @@ public class PsqlStore implements Store {
         pool.setMaxIdle(10);
         pool.setMaxOpenPreparedStatements(100);
         createTable();
+        addUser(new User("Admin", "root@local", "root"));
     }
 
     private static final class Lazy {
@@ -284,10 +285,10 @@ public class PsqlStore implements Store {
     }
 
     @Override
-    public User findUserById(int id) {
+    public User findUserByEmail(String email) {
         User result = null;
         for (User u : findAllUsers()) {
-            if (u.getId() == id) {
+            if (u.getEmail().equals(email)) {
                 result = u;
             }
         }
