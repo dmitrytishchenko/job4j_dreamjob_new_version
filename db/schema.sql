@@ -9,3 +9,9 @@ id serial primary key,
 name text,
 photoId text
 );
+create table if not exists users (
+id serial primary key,
+name text,
+email text,
+password text
+);

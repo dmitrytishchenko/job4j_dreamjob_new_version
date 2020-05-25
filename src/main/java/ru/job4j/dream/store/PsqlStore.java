@@ -3,6 +3,7 @@ package ru.job4j.dream.store;
 import org.apache.commons.dbcp2.BasicDataSource;
 import ru.job4j.dream.model.Candidate;
 import ru.job4j.dream.model.Post;
+import ru.job4j.dream.model.User;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -50,7 +51,7 @@ public class PsqlStore implements Store {
     private void createTable() {
         String sql = "";
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("db/schema.sql"));
+            BufferedReader reader = new BufferedReader(new FileReader("C:\\projects\\job4j_dreamjob_new_version\\db\\schema.sql"));
             int c;
             while ((c = reader.read()) != -1) {
                 sql += (char) c;
@@ -240,5 +241,56 @@ public class PsqlStore implements Store {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void addUser(User user) {
+        try (Connection con = pool.getConnection();
+             PreparedStatement ps = con.prepareStatement(
+                     "Insert into users (name, email, password) values (?, ?, ?)",
+                     PreparedStatement.RETURN_GENERATED_KEYS)) {
+            ps.setString(1, user.getName());
+            ps.setString(2, user.getEmail());
+            ps.setString(3, user.getPassword());
+            ps.execute();
+            try (ResultSet id = ps.getGeneratedKeys()) {
+                if (id.next()) {
+                    user.setId(id.getInt(1));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<User> findAllUsers() {
+        List<User> users = new ArrayList<>();
+        try (Connection con = pool.getConnection();
+             PreparedStatement ps = con.prepareStatement("Select * from users")) {
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    users.add(new User(
+                            rs.getInt("id"),
+                            rs.getString("name"),
+                            rs.getString("email"),
+                            rs.getString("password")));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
+
+    @Override
+    public User findUserById(int id) {
+        User result = null;
+        for (User u : findAllUsers()) {
+            if (u.getId() == id) {
+                result = u;
+            }
+        }
+        return result;
     }
 }

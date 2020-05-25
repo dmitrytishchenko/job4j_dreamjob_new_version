@@ -21,6 +21,7 @@ public class AuthServlet extends HttpServlet {
            User admin = new User();
            admin.setName("Admin");
            admin.setEmail(email);
+           admin.setPassword(password);
            sc.setAttribute("user", admin);
            resp.sendRedirect(req.getContextPath() + "/posts.do");
        } else {
