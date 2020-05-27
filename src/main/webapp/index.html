@@ -26,6 +26,26 @@
                 alert($('#desc').attr('placeholder'));
             }
         }
+
+        function addRow() {
+            var firstN = $('#first').val();
+            var secondN = $('#second').val();
+            var value = document.getElementsByName("sex");
+            var sex;
+            if (value[0].checked == true) {
+                sex = 'male';
+            }
+            if (value[1].checked == true) {
+                sex = 'female';
+            }
+            var desc = $('#desc').val();
+            $('#table tr:last').after('<tr>' +
+                '<td>' + firstN + '</td>' +
+                '<td>' + secondN + '</td>' +
+                '<td>' + sex + '</td>' +
+                '<td>' + desc + '</td>' +
+                '</tr>');
+        }
     </script>
 </head>
 <body>
@@ -62,32 +82,37 @@
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-default" onclick="return validate();">Submit</button>
+            <button type="button" class="btn btn-default" onclick="return addRow();">AddRow</button>
         </div>
     </div>
 </form>
-<table class="table table-bordered table-reflow">
+<table class="table table-bordered table-reflow" id="table">
     <thead>
     <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Sex</th>
+        <th>Description</th>
     </tr>
     </thead>
     <tbody>
     <tr>
         <td>John</td>
         <td>Doe</td>
-        <td>john@example.com</td>
+        <td>male</td>
+        <td>desc</td>
     </tr>
     <tr>
         <td>Mary</td>
         <td>Moe</td>
-        <td>mary@example.com</td>
+        <td>female</td>
+        <td>desc</td>
     </tr>
     <tr>
         <td>July</td>
         <td>Dooley</td>
-        <td>july@example.com</td>
+        <td>female</td>
+        <td>ddd</td>
     </tr>
     </tbody>
 </table>
