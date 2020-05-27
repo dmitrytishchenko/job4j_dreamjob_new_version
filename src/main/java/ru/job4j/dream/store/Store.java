@@ -28,7 +28,7 @@ public interface Store {
 
     void addUser(User user);
 
-    List<User> findAllUsers();
+    Collection<User> findAllUsers();
 
     User findUserByEmail(String email);
 
