@@ -7,6 +7,26 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function validate() {
+            var firstName = $('#first').val();
+            if (firstName == '') {
+                alert($('#first').attr('placeholder'));
+            }
+            var secondName = $('#second').val();
+            if (secondName == '') {
+                alert($('#second').attr('placeholder'));
+            }
+            var sex = document.getElementsByName("sex");
+            if (sex[0].checked != true && sex[1].checked != true) {
+                alert('Input value male or female');
+            }
+            var desc = $('#desc').val();
+            if (desc == '') {
+                alert($('#desc').attr('placeholder'));
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -14,17 +34,17 @@
     <h1>My First Bootstrap Page</h1>
     <h2> index.html + bootstrap, form, table[#218020]</h2>
 </div>
-<form class="form-horizontal" action="/index.html">
+<form class="form-horizontal" action="/dreamjob/index.html">
     <div class="form-group">
-        <label class="control-label col-sm-2" for="firstname">Firstname:</label>
+        <label class="control-label col-sm-2" for="first">FirstName:</label>
         <div class="col-sm-10">
-            <input type="firstname" class="form-control" id="firstname" placeholder="Enter firstname">
+            <input type="firstname" class="form-control" id="first" placeholder="Enter firstName">
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-2" for="secondname">Secondname:</label>
+        <label class="control-label col-sm-2" for="second">SecondName:</label>
         <div class="col-sm-10">
-            <input type="secondname" class="form-control" id="secondname" placeholder="Enter secondname">
+            <input type="secondname" class="form-control" id="second" placeholder="Enter secondName">
         </div>
     </div>
     <div>
@@ -41,7 +61,7 @@
     </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-default" onclick="return validate();">Submit</button>
         </div>
     </div>
 </form>
