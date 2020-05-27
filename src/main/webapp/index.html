@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+    <h1>My First Bootstrap Page</h1>
+    <h2> index.html + bootstrap, form, table[#218020]</h2>
+</div>
+<form class="form-horizontal" action="/index.html">
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="firstname">Firstname:</label>
+        <div class="col-sm-10">
+            <input type="firstname" class="form-control" id="firstname" placeholder="Enter firstname">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="secondname">Secondname:</label>
+        <div class="col-sm-10">
+            <input type="secondname" class="form-control" id="secondname" placeholder="Enter secondname">
+        </div>
+    </div>
+    <div>
+        <label class="control-label col-sm-2" for="male">Sex:</label></br>
+        <input type="radio" id="male" name="sex">Male</br>
+        <label class="control-label col-sm-2" for="female"></label>
+        <input type="radio" id="female" name="sex">Female</br>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="desc">Description:</label>
+        <div class="col-sm-10">
+            <input type="desc" class="form-control" id="desc" placeholder="Enter description">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    </div>
+</form>
+<table class="table table-bordered table-reflow">
+    <thead>
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+    </tr>
+    <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+    </tr>
+    <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
