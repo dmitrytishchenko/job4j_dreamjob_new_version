@@ -41,12 +41,20 @@
         <url-pattern>/upload</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>GreetingServlet</servlet-name>
-        <servlet-class>ru.job4j.dream.servlet.GreetingServlet</servlet-class>
-    </servlet>
+    <servlet-name>GreetingServlet</servlet-name>
+    <servlet-class>ru.job4j.dream.servlet.GreetingServlet</servlet-class>
+</servlet>
     <servlet-mapping>
         <servlet-name>GreetingServlet</servlet-name>
         <url-pattern>/greet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>JsonController</servlet-name>
+        <servlet-class>ru.job4j.dream.servlet.JsonController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JsonController</servlet-name>
+        <url-pattern>/json</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>DownloadServlet</servlet-name>
@@ -72,12 +80,12 @@
         <servlet-name>AuthServlet</servlet-name>
         <url-pattern>/auth.do</url-pattern>
     </servlet-mapping>
-    <filter>
-        <filter-name>AuthFilter</filter-name>
-        <filter-class>ru.job4j.dream.filter.AuthFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>AuthFilter</filter-name>
-        <url-pattern>*.do</url-pattern>
-    </filter-mapping>
+    <!--<filter>-->
+        <!--<filter-name>AuthFilter</filter-name>-->
+        <!--<filter-class>ru.job4j.dream.filter.AuthFilter</filter-class>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>AuthFilter</filter-name>-->
+        <!--<url-pattern>*.do</url-pattern>-->
+    <!--</filter-mapping>-->
 </web-app>
