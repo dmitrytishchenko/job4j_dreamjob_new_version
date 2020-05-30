@@ -5,16 +5,19 @@ import java.util.Objects;
 public class Candidate {
     private int id;
     private String name;
+    private int city_id;
     private String photoId;
 
-    public Candidate(int id, String name, String photoId) {
+    public Candidate(int id, String name, int city_id, String photoId) {
         this.id = id;
         this.name = name;
+        this.city_id = city_id;
         this.photoId = photoId;
     }
 
-    public Candidate(String name, String photoId) {
+    public Candidate(String name, int city_id, String photoId) {
         this.name = name;
+        this.city_id = city_id;
         this.photoId = photoId;
     }
 
@@ -54,5 +57,13 @@ public class Candidate {
 
     public void setPhotoId(String photoId) {
         this.photoId = photoId;
+    }
+
+    public int getCity() {
+        return city_id;
+    }
+
+    public void setCity(int city_id) {
+        this.city_id = city_id;
     }
 }

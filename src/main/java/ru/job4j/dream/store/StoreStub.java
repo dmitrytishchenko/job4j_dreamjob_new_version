@@ -87,4 +87,20 @@ public class StoreStub implements Store {
         }
         return result;
     }
+
+    @Override
+    public List<String> findAllCities() {
+        return null;
+    }
+
+    @Override
+    public int getIdCity(String city) {
+        return 0;
+    }
+
+    @Override
+    public String getCity(int id) {
+        return null;
+    }
+
 }

@@ -38,6 +38,7 @@
             <tr>
                 <th>ID</th>
                 <th>Имя</th>
+                <th>Город</th>
             </tr>
             </thead>
             <tbody>
@@ -47,6 +48,9 @@
                 </td>
                 <td>
                     <c:out value="${can.name}"></c:out>
+                </td>
+                <td>
+                    <c:out value="${can.city}"></c:out>
                 </td>
             </tr>
             </tbody>

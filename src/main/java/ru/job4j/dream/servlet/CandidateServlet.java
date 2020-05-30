@@ -57,6 +57,7 @@ public class CandidateServlet extends HttpServlet {
             }
             PsqlStore.instOf().save(new Candidate(
                     fields.get("name"),
+                    PsqlStore.instOf().getIdCity(fields.get("cities")),
                     newFile.getName()));
         } catch (FileUploadException e) {
             e.printStackTrace();

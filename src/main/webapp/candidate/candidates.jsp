@@ -31,7 +31,6 @@
 </head>
 <body>
 <div class="container pt-3">
-
     <div class="row">
         <div class="card" style="width: 100%">
             <div class="card-header">
@@ -42,6 +41,7 @@
                     <thead>
                     <tr>
                         <th scope="col">Названия</th>
+                        <th scope="col">Город</th>
                         <th scope="col">Фото</th>
                     </tr>
                     </thead>
@@ -53,6 +53,9 @@
                                     <i class="fa fa-edit mr-3"></i>
                                 </a>
                                 <c:out value="${can.name}"/>
+                            </td>
+                            <td>
+                                <c:out value="${can.city}"/>
                             </td>
                             <td>
                                 <img src="${pageContext.servletContext.contextPath}/download?name=${can.photoId}"

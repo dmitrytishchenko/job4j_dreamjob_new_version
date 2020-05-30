@@ -32,5 +32,9 @@ public interface Store {
 
     User findUserByEmail(String email);
 
+    List<String> findAllCities();
 
+    int getIdCity(String city);
+
+    String getCity(int id);
 }
