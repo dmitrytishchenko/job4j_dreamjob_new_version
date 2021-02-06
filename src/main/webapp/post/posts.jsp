@@ -29,7 +29,7 @@
     <title>Работа мечты</title>
 </head>
 <body>
-<div class="row">
+<div class="row" style="margin: 50px">
     <ul class="nav">
         <li class="nav-item">
             <a class="nav-link" href="<%=request.getContextPath()%>/posts.do">Вакансии</a>
